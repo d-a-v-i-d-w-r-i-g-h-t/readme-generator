@@ -1,32 +1,151 @@
 // TODO: Include packages needed for this application
-    const inquirer = require('inquirer');
-    // import inquirer from inquirer // this is the new way under ECMA6, we can't do it that way yet
+const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js');
+const newFileName = 'README.md.new';
 
 // TODO: Create an array of questions for user input
 const questions = [
-    "What is your GitHub username?",
-    "What is your email address?",
-    "What is your project's name?",
-    "Please write a short description of your project:",
-    "What kind of license should your project have?",
-    "What command should be run to install dependencies?",
-    "What command should be run to run tests?",
-    "What does the user need to know about using the repo?",
-    "What does the user need to know about contributing to the repo?"
+    {
+        type: 'input',
+        name: 'username',
+        message:'What is your GitHub username?',
+    },
+    {
+        type: 'input',
+        name: 'username',
+        message:'What is your email address?',
+    },
+    {
+        type: 'input',
+        name: 'project',
+        message:`What is your project's name?`,
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message:'Please write a short description of your project:',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message:'What kind of license should your project have?',
+        choices: [],
+    },
+    {
+        type: 'input',
+        name: 'install',
+        message:'What command should be run to install dependencies?',
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message:'What command should be run to run tests?',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message:'What does the user need to know about using the repo?',
+    },
+    {
+        type: 'input',
+        name: 'contributions',
+        message:'What does the user need to know about contributing to the repo?',
+    },
+];
+const testQuestions = [
+    {
+        type: 'input',
+        name: 'first name',
+        message: 'What is your first name?',
+    },
+    {
+        type: 'input',
+        name: 'last name',
+        message: 'What is your last name?',
+    },
+    {
+        type: 'list',
+        name: 'color',
+        message: 'Pick a color:',
+        choices: ['Red', 'Blue', 'Green', 'Chartreuse'],
+    },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+
+    console.log(
+`File: ${fileName}
+Content: ${data}`
+    );
+
+}
+
+
+
+function getReadmeContent() {
+
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'first name',
+                message: 'What is your first name?'
+            },
+            {
+                type: 'input',
+                name: 'last name',
+                message: 'What is your last name?'
+            },
+            {
+                type: 'list',
+                name: 'color',
+                message: 'Pick a color:',
+                choices: ['Red', 'Blue', 'Green', 'Chartreuse'],
+            },
+        ])
+        .then((answers) => {
+            console.log('User Input:', answers);
+        })
+        .catch((error) => {
+            console.error('Error occurred:', error);
+        });
+
+}
+
 
 // TODO: Create a function to initialize app
 function init() {
 
     // use inquire to ask questions, return data
 
+    // getReadmeContent();
+    inquirer
+        .prompt(testQuestions)
+        .then( (response) => {
+            console.log('User Input: ', response);
+            newReadmeContent = generateMarkdown(answers);
+
+
+        })
+        .catch((error) => {
+            console.error('Error occurred: ', error);
+            if (error.isTtyError) {
+                console.log("Prompt couldn't be rendered in the current environment");
+            } else {
+                console.log("Something else went wrong");
+            }
+        });
+
+    
+
     // call generateMarkdown to format data
 
-    // call writeToFile to create the file
+    // console.log("New Readme Content: " + newReadmeContent);
 
+
+    // // call writeToFile to create the file
+    // writeToFile("file", newReadmeContent);
 }
 
 // Function call to initialize app
