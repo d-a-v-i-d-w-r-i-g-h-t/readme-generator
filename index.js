@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const newFileName = 'README.md.new';
 
-// TODO: Create an array of questions for user input
+//  an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -17,7 +17,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'project',
+        name: 'title',
         message:`What is your project's name?`,
     },
     {
@@ -33,7 +33,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'install',
+        name: 'installation',
         message:'What command should be run to install dependencies?',
     },
     {
@@ -52,6 +52,7 @@ const questions = [
         message:'What does the user need to know about contributing to the repo?',
     },
 ];
+// an shorter array of test questions
 const testQuestions = [
     {
         type: 'input',
@@ -71,55 +72,10 @@ const testQuestions = [
     },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-
-    console.log(
-`File: ${fileName}
-Content: ${data}`
-    );
-
-}
-
-
-
-function getReadmeContent() {
-
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'first name',
-                message: 'What is your first name?'
-            },
-            {
-                type: 'input',
-                name: 'last name',
-                message: 'What is your last name?'
-            },
-            {
-                type: 'list',
-                name: 'color',
-                message: 'Pick a color:',
-                choices: ['Red', 'Blue', 'Green', 'Chartreuse'],
-            },
-        ])
-        .then((answers) => {
-            console.log('User Input:', answers);
-        })
-        .catch((error) => {
-            console.error('Error occurred:', error);
-        });
-
-}
-
-
 // TODO: Create a function to initialize app
 function init() {
 
     // use inquire to ask questions, return data
-
-    // getReadmeContent();
     inquirer
         .prompt(testQuestions)
         .then( (response) => {
@@ -147,6 +103,23 @@ function init() {
     // // call writeToFile to create the file
     // writeToFile("file", newReadmeContent);
 }
+
+
+//  a function to write README file
+function writeToFile(fileName, data) {
+    console.log(
+`File: ${fileName}
+Content: ${data}`
+    );
+
+    fs.writeFile(fileName, data, (err) => {
+        err
+          ? console.error(err)
+          : console.log("File created successfully!");
+      });
+}
+
+
 
 // Function call to initialize app
 init();
