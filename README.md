@@ -17,6 +17,7 @@ To install dependencies, in this case Inquirer and dayjs, use the command line t
 
 ```npm install```
 
+![Installation of dependencies](assets/images/npm-install.png)
 
 ## Usage 
 
@@ -24,10 +25,24 @@ To run the application, navigate to the installation folder using Terminal (Mac 
 
 ```node index.js```
 
+![Run the application](assets/images/run-app.png)
 
+All of the prompts are shown below:
 
-![alt text](assets/images/screenshot.png)
+![All command-line prompts](assets/images/all-prompts.png)
 
+The user selects a license by moving up and down with the arrow keys and pressing Enter. "None" is also an option. License selection is shown below:
+
+![License selection](assets/images/license.png)
+
+The terminal output is shown below:
+
+![Command-line results](assets/images/results.png)
+
+A markdown preview of the generated file is shown below:
+
+![Markdown preview section 1](assets/images/markdown-preview1.png)
+![Markdown preview section 2](assets/images/markdown-preview2.png)
 
 
 ## Credits
