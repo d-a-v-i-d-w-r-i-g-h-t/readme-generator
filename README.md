@@ -21,7 +21,7 @@ If you need an example of a good README, check out [the VSCode repository](https
 
 Copy all files and folders into the desired installation folder.
 
-To install dependencies, in this case Inquirer, use the command line to navigate to the installation folder and enter the following command:
+To install dependencies, in this case Inquirer and dayjs, use the command line to navigate to the installation folder and enter the following command:
 
 ```npm install```
 
@@ -39,7 +39,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-This application uses [Inquirer v8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4).
+This application uses [Inquirer v8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4) and [dayjs](https://www.npmjs.com/package/dayjs).
 
 Badges were provided by [lukas-h](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba) and made with [Shields.io](http://shields.io/).
 
