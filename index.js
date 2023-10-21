@@ -30,7 +30,7 @@ const questions = [
         type: 'input',
         name: 'description',
         message:'Please write a short description of your project:',
-    }, // if blank insert "[include description text here]"
+    },
     {
         type: 'input',
         name: 'installation',
@@ -45,7 +45,16 @@ const questions = [
         type: 'list',
         name: 'license',
         message:'What kind of license should your project have?',
-        choices: [],
+        choices: [
+                    "GNU AGPLv3",
+                    "GNU GPLv3",
+                    "GNU LGPLv3",
+                    "Mozilla Public License 2.0",
+                    "Apache License 2.0",
+                    "MIT License",
+                    "Boost Software License 1.0",
+                    "The Unlicense"
+                ],
     },
     {
         type: 'input',
