@@ -1,3 +1,62 @@
+const licenseData = {
+  mit: {
+    name: "MIT License",
+    text: "",
+    link: "https://choosealicense.com/licenses/mit/",
+    badge: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+  }
+  agpl3:{
+    name: "GNU Affero General Public License v3.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/agpl-3.0/",
+    badge: "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)",
+  }
+  
+  gpl3:{
+    name: "GNU General Public License v3.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/gpl-3.0/",
+    badge: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+  }
+  
+  lgpl3:{
+    name: "GNU Lesser General Public License v3.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/lgpl-3.0/",
+    badge: "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)",
+  }
+  
+  mpl2:{
+    name: "Mozilla Public License 2.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/mpl-2.0/",
+    badge: "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
+  }
+  
+  apache2:{
+    name: "Apache License 2.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/apache-2.0/",
+    badge: "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+  }
+  
+  boost1:{
+    name: "Boost Software License 1.0",
+    text: "",
+    link: "https://choosealicense.com/licenses/bsl-1.0/",
+    badge: "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
+  }
+  
+  unlicense:{
+    name: "The Unlicense",
+    text: "",
+    link: "https://choosealicense.com/licenses/unlicense/",
+    badge: "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+  }
+  
+}
+
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
