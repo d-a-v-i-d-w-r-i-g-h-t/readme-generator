@@ -35,6 +35,8 @@ The user selects a license by moving up and down with the arrow keys and pressin
 
 ![License selection](assets/images/license.png)
 
+After the user responds to all the prompts, the new 'README.md' file is generated and saved in the 'output' folder. If the 'output' folder doesn't exist, it is created.
+
 The terminal output is shown below:
 
 ![Command-line results](assets/images/results.png)
