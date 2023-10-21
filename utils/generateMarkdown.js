@@ -1,22 +1,38 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(data.license) {
+function renderLicenseBadge(license) {
 
 
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(data.license) {
+function renderLicenseLink(license) {
 
+  const link = ""; // NEED TO ADD THIS *******************************
 
+  return link;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(data.license) {
+function renderLicenseSection(license) {
 
   // create a conditional to check licenses
+
+  const licenseText = ""; // NEED TO ADD THIS *******************************
+  const licenseLink = renderLicenseLink(data.license); 
+
+  const licenseSection = `## License
+
+${licenseText}
+
+Detailed information about this license can be found [here](${licenseLink}).
+
+
+`;
+
+  return licenseSection;
 }
 
 // function to generate markdown for README
@@ -80,21 +96,35 @@ ${data.usage}
     TOC.license = `* [Installation](#installation)
 `;
     sectionCount++;
+    section.license = renderLicenseSection(data.license);
   }
 
   if (data.contributions) {
     TOC.contributions = `* [Installation](#installation)
 `;
     sectionCount++;
+    section.contributions = `## Contributing
+
+${data.credits}
+
+
+`;
   }
 
   if (data.test) {
     TOC.test = `* [Installation](#installation)
 `;
     sectionCount++;
+    section.tests = `## Tests
+
+Run the following command to run tests:
+
+${data.test}
+
+
+`;
   }
 
-  data.usage
 
   const TOCtext = "";
   If (sectionCount > 3) {
@@ -116,24 +146,7 @@ ${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributing}${TOC.tests}* [Q
 ${data.description}
 
 
-${TOCtext}${section.installation}${section.usage}## License
-
-${data.license}
-
-
-## Contributing
-
-${data.credits}
-
-
-## Tests
-
-Run the following command to run tests:
-
-${data.test}
-
-
-## Questions
+${TOCtext}${section.installation}${section.usage}${section.license}${section.contributions}${section.tests}## Questions
 
 Find me on GitHub: [${data.username}](https://github.com/${data.username})
 
