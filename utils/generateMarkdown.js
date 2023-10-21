@@ -1,8 +1,12 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  let badge = "";
 
-
+  if (license) {
+    badge = "badge";
+  }
+  return badge;
 }
 
 // TODO: Create a function that returns the license link
@@ -37,6 +41,8 @@ Detailed information about this license can be found [here](${licenseLink}).
 
 // function to generate markdown for README
 function generateMarkdown(data) {
+
+  let licenseBadge = renderLicenseBadge(data.license);
 
   // if user did not input any description text, add a placeholder
   let descriptionText = "[insert description text here]";
@@ -156,7 +162,7 @@ ${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributing}${TOC.tests}* [Q
   const readmeString =
 `# ${data.title}
 
-## Description 
+## Description ${licenseBadge}
 
 ${data.description}
 
