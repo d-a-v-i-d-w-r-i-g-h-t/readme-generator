@@ -1,5 +1,4 @@
-# readme-generator
-# Your Project Title
+# README Generator
 
 ## Description 
 
@@ -18,19 +17,13 @@ If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https:/
 If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
 
 
-## Table of Contents (Optional)
-
-If your README is very long, add a table of contents to make it easy for users to find what they need.
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-
-
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Copy all files and folders into the desired installation folder.
+
+To install dependencies, in this case Inquirer, use the command line to navigate to the installation folder and enter the following command:
+
+```npm install```
 
 
 ## Usage 
@@ -46,11 +39,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+This application uses [Inquirer v8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4).
 
 
 ## License
