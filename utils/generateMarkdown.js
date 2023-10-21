@@ -38,6 +38,12 @@ Detailed information about this license can be found [here](${licenseLink}).
 // function to generate markdown for README
 function generateMarkdown(data) {
 
+  // if user did not input any description text, add a placeholder
+  let descriptionText = "[insert description text here]";
+  if (data.description) {
+    descriptionText = data.description;
+  }
+
   // create link to deployed website if provided
   let deployedLink = "";
   if (data.deployedURL) {
@@ -46,10 +52,7 @@ function generateMarkdown(data) {
 My project has been deployed and can be accessed [here](${data.deployedURL}).`
   }
 
-  // return `readme: ${data}`;
-
-  // add section count, if number of sections > 4 add TOC
-
+  // object for TOC contents
   const TOC = {
     installation: "",
     usage: "",
@@ -58,6 +61,7 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
     test: "",
   }
 
+  // object for optional section contents
   const section = {
     installation: "",
     usage: "",
@@ -66,8 +70,12 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
     test: "",
   }
 
+
+  // count how many optional sections are included to see if we need a table of contents
   let sectionCount = 0;
 
+
+  // create an installation section if provided
   if (data.installation) {
     TOC.installation = `* [Installation](#installation)
 `;
@@ -80,6 +88,8 @@ ${data.installation}${deployedLink}
     sectionCount++;
   }
 
+
+  // create a usage section if provided
   if (data.usage) {
     TOC.usage = `* [Installation](#installation)
 `;
@@ -92,6 +102,8 @@ ${data.usage}
 `;
   }
 
+
+  // add license section if desired
   if (data.license) {
     TOC.license = `* [Installation](#installation)
 `;
@@ -111,6 +123,8 @@ ${data.credits}
 `;
   }
 
+
+  // create a test section if provided
   if (data.test) {
     TOC.test = `* [Installation](#installation)
 `;
@@ -125,9 +139,9 @@ ${data.test}
 `;
   }
 
-
+  // create a Table of Contents section if more than 3 optional sections are included
   const TOCtext = "";
-  If (sectionCount > 3) {
+  if (sectionCount > 3) {
     TOCtext =
 `## Table of Contents
   
@@ -138,6 +152,7 @@ ${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributing}${TOC.tests}* [Q
   }
 
 
+  // build README string
   const readmeString =
 `# ${data.title}
 
@@ -151,25 +166,6 @@ ${TOCtext}${section.installation}${section.usage}${section.license}${section.con
 Find me on GitHub: [${data.username}](https://github.com/${data.username})
 
 or email me at [${data.email}](mailto:${data.email}) with any questions.
-
-
----
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-## Contributing
-
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
 
 ---
 `;
