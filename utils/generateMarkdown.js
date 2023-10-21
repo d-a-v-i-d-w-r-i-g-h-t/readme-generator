@@ -97,7 +97,7 @@ function renderLicenseSection(license) {
   if (license != strNone) {
 
     const licenseName = license;
-    const licenseLink = renderLicenseLink(data.license); 
+    const licenseLink = renderLicenseLink(license); 
 
     const licenseSection = `## License
 
@@ -159,7 +159,11 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
 `;
     section.installation = `## Installation
 
-${data.installation}${deployedLink}
+Run the following command to install dependencies:
+
+\`\`\`
+${data.installation}
+\`\`\`${deployedLink}
 
 
 `;
@@ -169,7 +173,7 @@ ${data.installation}${deployedLink}
 
   // create a usage section if provided
   if (data.usage) {
-    TOC.usage = `* [Installation](#installation)
+    TOC.usage = `* [Usage](#usage)
 `;
     sectionCount++;
     section.usage = `## Usage 
@@ -182,20 +186,20 @@ ${data.usage}
 
 
   // add license section if desired
-  if (data.license) {
-    TOC.license = `* [Installation](#installation)
+  if (data.license != strNone) {
+    TOC.license = `* [License](#license)
 `;
     sectionCount++;
     section.license = renderLicenseSection(data.license);
   }
 
   if (data.contributions) {
-    TOC.contributions = `* [Installation](#installation)
+    TOC.contributions = `* [Contributions](#contributions)
 `;
     sectionCount++;
     section.contributions = `## Contributing
 
-${data.credits}
+${data.contributions}
 
 
 `;
@@ -204,26 +208,28 @@ ${data.credits}
 
   // create a test section if provided
   if (data.test) {
-    TOC.test = `* [Installation](#installation)
+    TOC.test = `* [Tests](#tests)
 `;
     sectionCount++;
-    section.tests = `## Tests
+    section.test = `## Tests
 
 Run the following command to run tests:
 
+\`\`\`
 ${data.test}
+\`\`\`
 
 
 `;
   }
 
   // create a Table of Contents section if more than 3 optional sections are included
-  const TOCtext = "";
+  let TOCtext = "";
   if (sectionCount > 3) {
     TOCtext =
 `## Table of Contents
   
-${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributing}${TOC.tests}* [Questions](#questions)
+${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributions}${TOC.test}* [Questions](#questions)
 
 
 `;
@@ -252,4 +258,7 @@ return readmeString;
 
 }
 
-module.exports = generateMarkdown;
+module.exports = {
+  licenseData, 
+  generateMarkdown
+};

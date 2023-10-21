@@ -39,7 +39,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-This application uses [Inquirer v8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4) and [dayjs](https://www.npmjs.com/package/dayjs).
+This application uses [Inquirer v8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4) and [fs](https://nodejs.org/api/fs.html#file-system).
 
 Badges were provided by [lukas-h](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba) and made with [Shields.io](http://shields.io/).
 

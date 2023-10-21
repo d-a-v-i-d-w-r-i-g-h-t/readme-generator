@@ -1,6 +1,7 @@
 // packages needed for this application
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const fs = require('fs');
+const {licenseData, generateMarkdown} = require('./utils/generateMarkdown.js');
 
 const newFileName = 'README.md';
 
@@ -46,21 +47,6 @@ const questions = [
         name: 'license',
         message:'What kind of license should your project have?',
         choices: Object.keys(licenseData),
-        // choices: [
-        //             'Apache License 2.0',
-        //             'GNU General Public License v3.0',
-        //             'MIT License',
-        //             'BSD 2-Clause "Simplified" License',
-        //             'BSD 3-Clause "New" or "Revised" License',
-        //             'Boost Software License 1.0',
-        //             'Creative Commons Zero v1.0 Universal',
-        //             'Eclipse Public License 2.0',
-        //             'GNU Affero General Public License v3.0',
-        //             'GNU General Public License v2.0',
-        //             'GNU Lesser General Public License v2.1',
-        //             'Mozilla Public License 2.0',
-        //             'The Unlicense'
-        //         ],
     },
     {
         type: 'input',
@@ -101,15 +87,15 @@ function init() {
     .prompt(questions)
     // .prompt(testQuestions)
     .then( (response) => {
-            console.log('User Input: ', response);
+            // console.log('User Input: ', response);
 
             // call generateMarkdown to format data
             const readmeContent = generateMarkdown(response);
 
-            console.log(readmeContent);
+            // console.log(readmeContent);
 
             // call writeToFile to create the file
-            writeToFile(newFileName, newReadmeContent);
+            writeToFile(newFileName, readmeContent);
         })
         .catch((error) => {
             console.error('Error occurred: ', error);
@@ -126,7 +112,8 @@ function init() {
 function writeToFile(fileName, data) {
     console.log(
 `File: ${fileName}
-Content: ${data}`
+Content:
+${data}`
     );
 
     // create 'output' folder if it doesn't exist
