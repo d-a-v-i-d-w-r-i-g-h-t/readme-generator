@@ -1,7 +1,8 @@
 // packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-const newFileName = 'README.md.new';
+
+const newFileName = 'README.md';
 
 //  an array of questions for user input
 const questions = [
@@ -57,7 +58,7 @@ const questions = [
         message:'What command should be run to run tests? If none, leave blank',
     },
 ];
-// an shorter array of test questions
+// a shorter array of test questions
 const testQuestions = [
     {
         type: 'input',
@@ -77,17 +78,23 @@ const testQuestions = [
     },
 ];
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
 
     // use inquire to ask questions, return data
     inquirer
-        .prompt(testQuestions)
-        .then( (response) => {
+    // .prompt(questions)
+    .prompt(testQuestions)
+    .then( (response) => {
             console.log('User Input: ', response);
-            newReadmeContent = generateMarkdown(answers);
 
+            // call generateMarkdown to format data
+            const readmeContent = generateMarkdown(response);
 
+            console.log(readmeContent);
+
+            // call writeToFile to create the file
+            writeToFile(newFileName, newReadmeContent);
         })
         .catch((error) => {
             console.error('Error occurred: ', error);
@@ -97,16 +104,6 @@ function init() {
                 console.log("Something else went wrong");
             }
         });
-
-    
-
-    // call generateMarkdown to format data
-
-    // console.log("New Readme Content: " + newReadmeContent);
-
-
-    // // call writeToFile to create the file
-    // writeToFile("file", newReadmeContent);
 }
 
 
@@ -117,33 +114,25 @@ function writeToFile(fileName, data) {
 Content: ${data}`
     );
 
-    fs.writeFile(fileName, data, (err) => {
+    // create 'output' folder if it doesn't exist
+    const folderName = "output";
+    if (!fs.existsSync(`./${folderName}`)) {
+      fs.mkdir(folderName, (err) => {
         err
-          ? console.error(err)
-          : console.log("File created successfully!");
+          ? console.error(`Error creating folder '${folderName}': ${err.message}`)
+          : console.log(`Folder '${folderName}' created successfully.`);
       });
+    }
+
+    // write the file to the output folder
+    fs.writeFile(`./${folderName}/${fileName}`, data, (err) => {
+      err
+        ? console.error(err)
+        : console.log(`File '${fileName}' created successfully in folder ./${folderName}`);
+    });
 }
 
 
 
-// Function call to initialize app
+// function call to initialize app
 init();
-
-// init is the only function that gets called on its own
-
-// use inquire to display questions to user
-//  inquire asks user questions and returns back responses
-//  add object that is returned from inquire that contains all the responses
-//  object is called 'data' and includes all sorts of stuff
-
-// call function generateMarkdown on collected data
-//   located in the other javascript file
-//   this will give us a big long string that is formatted
-
-// call function writeToFile(filename, data)
-
-// look in pseucoding channel, see file system documentation
-// inquirer v8.2.4 uses common js instead of ECMA6
-
-
-// npm install inquirer@8.2.4
