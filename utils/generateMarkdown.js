@@ -30,7 +30,7 @@ const licenseData = {
     badge: "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
   },
   
-  'Creative Commons Zero v1.0 Universal':{
+  'Creative Commons Zero v1.0 Universal License':{
     link: "https://choosealicense.com/licenses/bsl-1.0/",
     badge: "[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)",
   },
@@ -60,7 +60,7 @@ const licenseData = {
     badge: "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
   },
   
-  'The Unlicense':{
+  'Unlicense':{
     link: "https://choosealicense.com/licenses/unlicense/",
     badge: "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
   },
@@ -99,9 +99,9 @@ function renderLicenseSection(license) {
     const licenseName = license;
     const licenseLink = renderLicenseLink(license); 
 
-    const licenseSection = `## License
+    licenseSection = `## License
 
-This project is licensed under the terms of the MIT license.${licenseName}
+This project is licensed under the terms of the ${licenseName}.
 
 Detailed information about this license can be found [here](${licenseLink}).
 
@@ -135,7 +135,7 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
     installation: "",
     usage: "",
     license: "",
-    contributions: "",
+    contributing: "",
     test: "",
   }
 
@@ -144,7 +144,7 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
     installation: "",
     usage: "",
     license: "",
-    contributions: "",
+    contributing: "",
     test: "",
   }
 
@@ -153,7 +153,8 @@ My project has been deployed and can be accessed [here](${data.deployedURL}).`
   let sectionCount = 0;
 
 
-  // create an installation section if provided
+  // create an Installation section if provided
+
   if (data.installation) {
     TOC.installation = `* [Installation](#installation)
 `;
@@ -163,7 +164,7 @@ Run the following command to install dependencies:
 
 \`\`\`
 ${data.installation}
-\`\`\`${deployedLink}
+\`\`\`
 
 
 `;
@@ -171,7 +172,8 @@ ${data.installation}
   }
 
 
-  // create a usage section if provided
+  // create a Usage section if provided
+
   if (data.usage) {
     TOC.usage = `* [Usage](#usage)
 `;
@@ -185,7 +187,7 @@ ${data.usage}
   }
 
 
-  // add license section if desired
+  // add License section if desired
   if (data.license != strNone) {
     TOC.license = `* [License](#license)
 `;
@@ -193,13 +195,13 @@ ${data.usage}
     section.license = renderLicenseSection(data.license);
   }
 
-  if (data.contributions) {
-    TOC.contributions = `* [Contributions](#contributions)
+  if (data.contributing) {
+    TOC.contributing = `* [Contributing](#contributing)
 `;
     sectionCount++;
-    section.contributions = `## Contributing
+    section.contributing = `## Contributing
 
-${data.contributions}
+${data.contributing}
 
 
 `;
@@ -223,13 +225,13 @@ ${data.test}
 `;
   }
 
-  // create a Table of Contents section if more than 3 optional sections are included
+  // create a Table of Contents section if more than 1 optional sections are included
   let TOCtext = "";
-  if (sectionCount > 3) {
+  if (sectionCount > 1) {
     TOCtext =
 `## Table of Contents
   
-${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributions}${TOC.test}* [Questions](#questions)
+${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributing}${TOC.test}* [Questions](#questions)
 
 
 `;
@@ -242,10 +244,10 @@ ${TOC.installation}${TOC.usage}${TOC.license}${TOC.contributions}${TOC.test}* [Q
 
 ## Description ${licenseBadge}
 
-${data.description}
+${descriptionText}${deployedLink}
 
 
-${TOCtext}${section.installation}${section.usage}${section.license}${section.contributions}${section.tests}## Questions
+${TOCtext}${section.installation}${section.usage}${section.license}${section.contributing}${section.test}## Questions
 
 Find me on GitHub: [${data.username}](https://github.com/${data.username})
 

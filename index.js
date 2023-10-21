@@ -11,16 +11,25 @@ const questions = [
         type: 'input',
         name: 'title',
         message:`What is your project's name?`,
+        validate: function (input) { 
+            return input.length > 0
+        }
     },
     {
         type: 'input',
         name: 'email',
         message:`What is your email address?`,
+        validate: function (input) { 
+            return input.length > 0
+        }
     },
     {
         type: 'input',
         name: 'username',
         message:'What is your GitHub username?',
+        validate: function (input) { 
+            return input.length > 0
+        }
     },
     {
         type: 'input',
@@ -50,7 +59,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributions',
+        name: 'contributing',
         message:'What does the user need to know about contributing to the repo? If nothing, leave blank.',
     },
     {
