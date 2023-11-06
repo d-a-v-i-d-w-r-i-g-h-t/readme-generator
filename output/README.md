@@ -1,10 +1,8 @@
-# README Generator
+# SVG Logo Maker
 
 ## Description [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is my description
-
-My project has been deployed and can be accessed [here](https://www.amazon.com).
+This command-line application generates an SVG logo based on simple user input.
 
 
 ## Table of Contents
@@ -12,7 +10,6 @@ My project has been deployed and can be accessed [here](https://www.amazon.com).
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
-* [Contributing](#contributing)
 * [Tests](#tests)
 * [Questions](#questions)
 
@@ -28,7 +25,7 @@ npm install
 
 ## Usage 
 
-Usage instructions go here
+Use the command node index.js to run the application. Provide a shape, color, and text input in response to the command-line prompts. The new file logo.svg will be generated in the 'outputs' folder.
 
 
 ## License
@@ -36,11 +33,6 @@ Usage instructions go here
 This project is licensed under the terms of the MIT License.
 
 Detailed information about this license can be found [here](https://choosealicense.com/licenses/mit/).
-
-
-## Contributing
-
-Please contribute if you would like
 
 
 ## Tests
@@ -54,8 +46,8 @@ npm test
 
 ## Questions
 
-Find me on GitHub: [GitHubUser](https://github.com/GitHubUser)
+Find me on GitHub: [d-a-v-i-d-w-r-i-g-h-t](https://github.com/d-a-v-i-d-w-r-i-g-h-t)
 
-or email me at [email@email.com](mailto:email@email.com) with any questions.
+or email me at [davidswright73@gmail.copm](mailto:davidswright73@gmail.copm) with any questions.
 
 ---

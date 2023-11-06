@@ -21,6 +21,8 @@ To install dependencies, in this case Inquirer and dayjs, use the command line t
 
 ## Usage 
 
+A walkthrough video is available [here](https://watch.screencastify.com/v/vZVssm5QmaWJ03VtbOpy).
+
 To run the application, navigate to the installation folder using Terminal (Mac OS), Git Bash (PC) or equivalent command-line interface, and enter the following command:
 
 ```node index.js```
